@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext, useEffect } from "react";
+import MainSection from "./Components/MainSection";
+import Navbar from "./Components/Navbar";
+import { MyContext } from "./MyContext";
+import axios from "axios";
 
 function App() {
+  const {setTicketData , setUserData , setShowDisplayBox , grouping} = useContext(MyContext);
+  useEffect(() => {
+    axios.get("https://api.quicksell.co/v1/internal/frontend-assignment").then((response) => {
+      setTicketData(response.data.tickets)
+      setUserData(response.data.users)
+      setShowDisplayBox(false)
+    })
+  } , [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <MainSection />
     </div>
   );
 }
