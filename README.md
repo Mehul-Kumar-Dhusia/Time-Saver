@@ -1,4 +1,5 @@
-# Note - I have used Material UI just for one icon and not for any other purpose
+# Note - I have used Material UI just for only one icon (down arrow icon in display box) and not for any other purpose
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
